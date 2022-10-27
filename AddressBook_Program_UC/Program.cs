@@ -10,7 +10,7 @@ namespace AddressBook_Program_UC
             Console.WriteLine("WelCome AddressBook !!!!!");
             ContactDetails contact = new ContactDetails()
             {
-                First_Name = "Ramchandra",
+                First_Name = "Ramchandra ",
                 Last_Name = "Mulik",
                 MobileNumber = 9604340676,
                 Email = "mulikram2016@gmail.com",
@@ -21,7 +21,7 @@ namespace AddressBook_Program_UC
             };
             ContactDetails contact1 = new ContactDetails()
             {
-                First_Name = "Shrikant",
+                First_Name = "Shrikant ",
                 Last_Name = "Rabade",
                 MobileNumber = 9096848446,
                 Email = "rabadeshrikant1511@gmail.com",
@@ -30,9 +30,21 @@ namespace AddressBook_Program_UC
                 State = "Maharashtra",
                 ZipCode = 565565
             };
+            ContactDetails contact2 = new ContactDetails()
+            {
+                First_Name = "Aniket ",
+                Last_Name = "Patil",
+                MobileNumber = 9096848447,
+                Email = "patilaniket1511@gmail.com",
+                Address = "At Post Hivare",
+                City = "Khanapur",
+                State = "Maharashtra",
+                ZipCode = 415315
+            };
             ContactRepository contactDetailsRepository = new ContactRepository();
             contactDetailsRepository.AddContactDetails(contact);
             contactDetailsRepository.AddContactDetails(contact1);
+            contactDetailsRepository.AddContactDetails(contact2);
             contactDetailsRepository.DisplayContact();
         }
     }
