@@ -7,44 +7,48 @@ namespace AddressBook_Program_UC
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("WelCome AddressBook !!!!!");
-            ContactDetails contact = new ContactDetails()
-            {
-                First_Name = "Ramchandra ",
-                Last_Name = "Mulik",
-                MobileNumber = 9604340676,
-                Email = "mulikram2016@gmail.com",
-                Address = "At Post Revangoan",
-                City = "Vita",
-                State = "Maharashtra",
-                ZipCode = 415311
-            };
-            ContactDetails contact1 = new ContactDetails()
-            {
-                First_Name = "Shrikant ",
-                Last_Name = "Rabade",
-                MobileNumber = 9096848446,
-                Email = "rabadeshrikant1511@gmail.com",
-                Address = "At Post Bambawade",
-                City = "Kolhapur",
-                State = "Maharashtra",
-                ZipCode = 565565
-            };
-            ContactDetails contact2 = new ContactDetails()
-            {
-                First_Name = "Aniket ",
-                Last_Name = "Patil",
-                MobileNumber = 9096848447,
-                Email = "patilaniket1511@gmail.com",
-                Address = "At Post Hivare",
-                City = "Khanapur",
-                State = "Maharashtra",
-                ZipCode = 415315
-            };
+            Console.WriteLine("WelCome AddressBook !!!!!\n");
+            
+
+                Console.WriteLine("Enter First Name : ");
+                string? firstName = Console.ReadLine();
+
+                Console.WriteLine("Enter Last Name :");
+                string? lastName = Console.ReadLine();
+
+                Console.WriteLine("Enter Mobile Number :");
+                long mobileNumber = Convert.ToInt64(Console.ReadLine());
+
+                Console.WriteLine("Enter Email ID : ");
+                string? email = Console.ReadLine();
+
+                Console.WriteLine("Enter Address : ");
+                string? address = Console.ReadLine();
+
+                Console.WriteLine("Enter City : ");
+                string? city = Console.ReadLine();
+
+                Console.WriteLine("Enter State : ");
+                string? state = Console.ReadLine();
+
+                Console.WriteLine("Enter Zip Code : ");
+                int zip = Convert.ToInt32(Console.ReadLine());
+            ContactDetails contact = null;
+                 contact = new ContactDetails()
+                {
+                    First_Name = firstName,
+                    Last_Name = lastName,
+                    MobileNumber = mobileNumber,
+                    Email = email,
+                    Address = address,
+                    State = state,
+                    City = city,
+                    ZipCode = zip
+
+                };
+
             ContactRepository contactDetailsRepository = new ContactRepository();
             contactDetailsRepository.AddContactDetails(contact);
-            contactDetailsRepository.AddContactDetails(contact1);
-            contactDetailsRepository.AddContactDetails(contact2);
             contactDetailsRepository.DisplayContact();
         }
     }
