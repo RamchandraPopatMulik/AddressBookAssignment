@@ -49,6 +49,25 @@ namespace AddressBook_Program_UC
 
             ContactRepository contactDetailsRepository = new ContactRepository();
             contactDetailsRepository.AddContactDetails(contact);
+            Console.Write("Enter 'f' to get Contact Details by First Name : ");
+            var name = Console.ReadLine();
+            while (name == "f")
+            {
+                Console.Write("Enter First Name : ");
+                contactDetailsRepository.GetUsingFirstName(Console.ReadLine());
+                Console.Write("Enter 'g' to get Contact Details by First Name otherwise Enter any key : ");
+                name = Console.ReadLine();
+            }
+            Console.Write("Enter 'e' to edit contact using mobile number : ");
+            var edit = Console.ReadLine();
+            while (edit == "e")
+            {
+                Console.Write("Enter Mobile Number : ");
+                contactDetailsRepository.EditContactDetails(Convert.ToInt64(Console.ReadLine()));
+
+                Console.Write("Enter 'e' to edit contact using mobile number otherwise Enter any key : ");
+                edit = Console.ReadLine();
+            }
             contactDetailsRepository.DisplayContact();
         }
     }
