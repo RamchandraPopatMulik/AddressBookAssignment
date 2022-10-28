@@ -93,6 +93,10 @@ namespace AddressBook_Program_UC.Repository
                 }
             }
         }
+        public void DeleteContact(long mobilenumber)
+        {
+            contactDetailDictionary.Remove(mobilenumber);
+        }
         public void DisplayContact()
         {
             foreach (var item in contactDetailDictionary)
