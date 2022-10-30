@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace AddressBook_Program_UC.Repository
 {
@@ -73,6 +74,77 @@ namespace AddressBook_Program_UC.Repository
                     contactDetailDictionary.Add(Convert.ToInt64(obj.MobileNumber), obj);
                     break;
             }
+        }
+        public void EditContactDetailsByFirstName(string fname)
+        {
+            var persiondetail = GetUsingFirstNameDetail(fname);
+            contactDetailDictionary.Remove(Convert.ToInt64(persiondetail.MobileNumber));
+            Console.WriteLine("Select Details Which You Want to Edit : \n1 First Name \n2 Last Name \n3. Mobile Number \n4. Email ID \n5. Address \n6. City \n7. District \n8. State \n9. Zip Code");
+            int EditDetails = Convert.ToInt32(Console.ReadLine());
+            switch (EditDetails)
+            {
+                case 1:
+                    Console.WriteLine("Enter Your First Name to Update : ");
+                    string? firstname = Console.ReadLine();
+                    persiondetail.First_Name = firstname;
+                    contactDetailDictionary.Add(Convert.ToInt64(persiondetail.MobileNumber), persiondetail);
+                    break;
+
+                case 2:
+                    Console.WriteLine("Enter Your Last Name to Update : ");
+                    string? lastname = Console.ReadLine();
+                    persiondetail.Last_Name = lastname;
+                    contactDetailDictionary.Add(Convert.ToInt64(persiondetail.MobileNumber), persiondetail);
+                    break;
+
+                case 3:
+                    Console.WriteLine("Enter Your Mobile Number to Update : ");
+                    long mobileNumber = Convert.ToInt64(Console.ReadLine());
+                    persiondetail.MobileNumber = mobileNumber;
+                    contactDetailDictionary.Add(Convert.ToInt64(persiondetail.MobileNumber), persiondetail);
+                    break;
+                case 4:
+                    Console.WriteLine("Enter Your Email ID to Update : ");
+                    string? email = Console.ReadLine();
+                    persiondetail.Email = email;
+                    contactDetailDictionary.Add(Convert.ToInt64(persiondetail.MobileNumber), persiondetail);
+                    break;
+                case 5:
+                    Console.WriteLine("Enter Your Address to Update : ");
+                    string? address = Console.ReadLine();
+                    persiondetail.Address = address;
+                    contactDetailDictionary.Add(Convert.ToInt64(persiondetail.MobileNumber), persiondetail);
+                    break;
+                case 6:
+                    Console.WriteLine("Enter Your City to Update : ");
+                    string? city = Console.ReadLine();
+                    persiondetail.City = city;
+                    contactDetailDictionary.Add(Convert.ToInt64(persiondetail.MobileNumber), persiondetail);
+                    break;
+                case 7:
+                    Console.WriteLine("Enter Your State to Update : ");
+                    string? state = Console.ReadLine();
+                    persiondetail.State = state;
+                    contactDetailDictionary.Add(Convert.ToInt64(persiondetail.MobileNumber), persiondetail);
+                    break;
+                case 8:
+                    Console.WriteLine("Enter Your ZipCode to Update : ");
+                    int zipcode = Convert.ToInt32(Console.ReadLine());
+                    persiondetail.ZipCode = zipcode;
+                    contactDetailDictionary.Add(Convert.ToInt64(persiondetail.MobileNumber), persiondetail);
+                    break;
+            }
+        }
+        public ContactDetails GetUsingFirstNameDetail(string firstName)
+        {
+            foreach (var item in contactDetailDictionary)
+            {
+                if (item.Value.First_Name.Contains(firstName))
+                {
+                    return item.Value;
+                }
+            }
+            return null;
         }
         public void GetUsingFirstName(string firstname)
         {

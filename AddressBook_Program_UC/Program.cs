@@ -33,7 +33,7 @@ namespace AddressBook_Program_UC
 
                 Console.WriteLine("Enter Zip Code : ");
                 int zip = Convert.ToInt32(Console.ReadLine());
-            ContactDetails contact = null;
+                ContactDetails contact = null;
                  contact = new ContactDetails()
                 {
                     First_Name = firstName,
@@ -44,11 +44,24 @@ namespace AddressBook_Program_UC
                     State = state,
                     City = city,
                     ZipCode = zip
-
                 };
+            ContactDetails contact1 = null;
+            contact1 = new ContactDetails()
+            {
+                First_Name = firstName,
+                Last_Name = lastName,
+                MobileNumber = mobileNumber,
+                Email = email,
+                Address = address,
+                State = state,
+                City = city,
+                ZipCode = zip
+            };
 
             ContactRepository contactDetailsRepository = new ContactRepository();
             contactDetailsRepository.AddContactDetails(contact);
+            ContactRepository contactDetailsRepository1 = new ContactRepository();
+            contactDetailsRepository1.AddContactDetails(contact1);
             Console.Write("Enter 'f' to get Contact Details by First Name : ");
             var name = Console.ReadLine();
             while (name == "f")
