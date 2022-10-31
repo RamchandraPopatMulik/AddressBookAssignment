@@ -76,7 +76,7 @@ namespace AddressBook_Program_UC
             while (edit == "e")
             {
                 Console.Write("Enter Mobile Number : ");
-                contactDetailsRepository.EditContactDetails(Convert.ToInt64(Console.ReadLine()));
+                contactDetailsRepository.EditContactDetails(Console.ReadLine());
 
                 Console.Write("Enter 'e' to edit contact using mobile number otherwise Enter any key : ");
                 edit = Console.ReadLine();
@@ -86,7 +86,7 @@ namespace AddressBook_Program_UC
             while (delete == "d")
             {
                 Console.Write("Enter Mobile Number Which you want to Delete Contact : ");
-                contactDetailsRepository.DeleteContact(Convert.ToInt64(Console.ReadLine()));
+                contactDetailsRepository.DeleteContact(Console.ReadLine());
                 Console.Write("Enter 'd' to Delete contact using mobile number otherwise Enter any key : ");
                 delete = Console.ReadLine();
             }

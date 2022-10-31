@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace AddressBook_Program_UC.Model
 {
     internal class ContactDetails
-    {
+    {   
+        public string? Unique_Name { get; set; }
         public string? First_Name { get; set; }
         public string? Last_Name { get; set; }
         public long? MobileNumber { get; set; }
